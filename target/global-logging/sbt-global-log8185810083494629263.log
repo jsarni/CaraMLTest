@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec({file:/home/juba/Cours/PA/CaraMLTest/}caramltest/compile, None, None)[0m
+[0m[[0m[31merror[0m] [0m[0mExpected project ID[0m
+[0m[[0m[31merror[0m] [0m[0m{file:/home/juba/Cours/PA/CaraMLTest/}caramltest/compile[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
