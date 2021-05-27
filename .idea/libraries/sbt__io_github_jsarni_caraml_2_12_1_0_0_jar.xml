@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: io.github.jsarni:caraml_2.12:1.0.0:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/local/io.github.jsarni/caraml_2.12/1.0.0/jars/caraml_2.12.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/local/io.github.jsarni/caraml_2.12/1.0.0/docs/caraml_2.12-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/local/io.github.jsarni/caraml_2.12/1.0.0/srcs/caraml_2.12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -7,4 +7,4 @@ CaraPipeline:
 - evaluator: RegressionEvaluator
 - tuner: TrainValidationSplit
   params:
-    - TrainRation: 0.8
+    - TrainRatio: 0.8
