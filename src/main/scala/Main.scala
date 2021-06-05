@@ -1,5 +1,6 @@
 import org.apache.spark.sql.SparkSession
 import io.github.jsarni.CaraModel
+import org.apache.spark.ml.linalg.Vectors
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -10,12 +11,12 @@ object Main {
         .master("local[1]")
         .getOrCreate()
 
-    val datasetPath: String = getClass.getResource("/test_dataset.csv").getPath
+    val dataset = sparkSession.read.format("libsvm").load(getClass.getResource("sample_linear_regression_data.txt").getPath)
+
     val yamlPath: String = getClass.getResource("/cara_yaml.yaml").getPath
-    val datasetFormat: String = "csv"
     val savePath: String = "./resultingModel.cml"
 
-    val caraModel = new CaraModel(yamlPath, datasetPath, datasetFormat, savePath)
+    val caraModel = new CaraModel(yamlPath, dataset, savePath)
 
     println(caraModel.run().get)
 

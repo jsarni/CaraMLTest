@@ -1,5 +1,5 @@
 CaraPipeline:
-- stage: LogisticRegression
+- stage: LinearRegression
   params:
     - MaxIter: 10
     - RegParam: 0.3
