@@ -1,10 +1,9 @@
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import io.github.jsarni.CaraModel
 import org.apache.spark.ml.feature.LabeledPoint
-import org.apache.spark.sql.functions.{array, col}
+import org.apache.spark.sql.functions.{array, col, mean, when}
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.types.DoubleType
-import org.apache.spark.sql._
 
 import scala.collection.mutable
 
@@ -29,12 +28,16 @@ object Main extends AppConfig {
     val trainDS = loadDataset(trainDatasetPath)
     val testDS = loadDataset(testDatasetPath)
 
-    trainDS.show()
     val caraModel = new CaraModel(yamlPath, trainDS, savePath)
+    caraModel.run().get
 
     val evaluation = caraModel.evaluate(testDS)
-    evaluation.show()
 
+    val accuracy =
+      evaluation.withColumn("is_success", when(col("label") === col("prediction"), 1).otherwise(0))
+        .agg(mean("is_success"))
+
+    accuracy.show()
   }
 
   def loadDataset(path: String)(implicit sparkSession: SparkSession) = {
