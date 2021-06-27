@@ -18,11 +18,13 @@ developers :=
 val spark = "org.apache.spark" %% "spark-mllib" % "3.1.1"
 val sparkCore = "org.apache.spark" %% "spark-core" % "3.1.1"
 val caraML = "io.github.jsarni" %% "caraml" % "1.0.0"
+val appconf = "com.typesafe" % "config" % "1.4.0"
 
 lazy val caraMLTest = (project in file("."))
   .settings(
     name := "CaraML",
     libraryDependencies += spark,
     libraryDependencies += sparkCore,
-    libraryDependencies += caraML
+    libraryDependencies += caraML,
+    libraryDependencies += appconf
   )
