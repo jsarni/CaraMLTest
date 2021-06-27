@@ -8,7 +8,7 @@ object Main {
       SparkSession
         .builder()
         .appName("CaraMLTest")
-        .master("local[1]")
+        .master("spark://laptop-juba:7077")
         .getOrCreate()
 
     val dataset = sparkSession.read.format("libsvm").load(getClass.getResource("sample_linear_regression_data.txt").getPath)

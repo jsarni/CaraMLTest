@@ -1,0 +1,15 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec({file:/home/juba/Cours/PA/CaraMLTest/}caraMLTest/publishLocal, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: publishLocal[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mWrote /home/juba/Cours/PA/CaraMLTest/target/scala-2.12/caramltest_2.12-1.0.0.pom[0m
+[0m[[0m[0minfo[0m] [0m[0mMain Scala API documentation to /home/juba/Cours/PA/CaraMLTest/target/scala-2.12/api...[0m
+[0m[[0m[0minfo[0m] [0m[0mMain Scala API documentation successful.[0m
+[0m[[0m[0minfo[0m] [0m[0m:: delivering :: io.github.jsarni#caramltest_2.12;1.0.0 :: 1.0.0 :: release :: Sun Jun 27 12:54:10 CEST 2021[0m
+[0m[[0m[0minfo[0m] [0m[0m	delivering ivy file to /home/juba/Cours/PA/CaraMLTest/target/scala-2.12/ivy-1.0.0.xml[0m
+[0m[[0m[0minfo[0m] [0m[0m	published caramltest_2.12 to /home/juba/.ivy2/local/io.github.jsarni/caramltest_2.12/1.0.0/poms/caramltest_2.12.pom[0m
+[0m[[0m[0minfo[0m] [0m[0m	published caramltest_2.12 to /home/juba/.ivy2/local/io.github.jsarni/caramltest_2.12/1.0.0/jars/caramltest_2.12.jar[0m
+[0m[[0m[0minfo[0m] [0m[0m	published caramltest_2.12 to /home/juba/.ivy2/local/io.github.jsarni/caramltest_2.12/1.0.0/srcs/caramltest_2.12-sources.jar[0m
+[0m[[0m[0minfo[0m] [0m[0m	published caramltest_2.12 to /home/juba/.ivy2/local/io.github.jsarni/caramltest_2.12/1.0.0/docs/caramltest_2.12-javadoc.jar[0m
+[0m[[0m[0minfo[0m] [0m[0m	published ivy to /home/juba/.ivy2/local/io.github.jsarni/caramltest_2.12/1.0.0/ivys/ivy.xml[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 1 s, completed 27 juin 2021 à 12:54:10[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
