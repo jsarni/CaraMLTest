@@ -1,11 +1,12 @@
 import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
-import io.github.jsarni.CaraModel
+import io.github.jsarni.caraml.CaraModel
 import org.apache.spark.ml.feature.LabeledPoint
 import org.apache.spark.sql.functions.{array, col, mean, when}
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.types.DoubleType
 
 import scala.collection.mutable
+import scala.util.{Failure, Success}
 
 
 object MainWithCaraML extends AppConfig {
@@ -28,7 +29,12 @@ object MainWithCaraML extends AppConfig {
     val testDS = loadDataset(testDatasetPath)
 
     val caraModel = new CaraModel(yamlPath, trainDS, savePath)
-    caraModel.run()
+    caraModel.run() match {
+      case Success(_) =>
+        println("Model successfully trained")
+      case Failure(exception) =>
+        throw exception
+    }
 
     val prediction = caraModel.evaluate(testDS)
 
