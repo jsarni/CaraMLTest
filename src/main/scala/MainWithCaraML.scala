@@ -8,7 +8,7 @@ import org.apache.spark.sql.types.DoubleType
 import scala.collection.mutable
 
 
-object Main extends AppConfig {
+object MainWithCaraML extends AppConfig {
   def main(args: Array[String]): Unit = {
 
     val sparkMaster = conf.getString("spark_master")
@@ -28,8 +28,8 @@ object Main extends AppConfig {
     val testDS = loadDataset(testDatasetPath)
 
     val caraModel = new CaraModel(yamlPath, trainDS, savePath)
-
     caraModel.run()
+
     val prediction = caraModel.evaluate(testDS)
 
     val accuracy = prediction.transform(computeAccuracy)
