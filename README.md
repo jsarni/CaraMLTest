@@ -79,16 +79,32 @@ Follow the next steps :
 1.  Clone this repository
 
 
-2. Download the [Fashion MNIST Dataset](https://www.kaggle.com/zalando-research/fashionmnist), and unzip the archive in the folder of your choice, then change the ***train_dataset_path*** and ***test_dataset_path*** accordingly in the [Application Conf File](src/main/resources/application.conf).
+2. Download the application jar: [Link](https://drive.google.com/drive/folders/1hPPNT13cjwdvAGYMVaYgtJ3RQoLTnHEo?usp=sharing)
 
 
-3. Install Apache Spark on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/))
+3. Download the [Fashion MNIST Dataset](https://www.kaggle.com/zalando-research/fashionmnist), and unzip the archive in the folder of your choice, then change the ***train_dataset_path*** and ***test_dataset_path*** accordingly in the [Application Conf File](src/main/resources/application.conf).
 
 
-4. Change the ***spark_master_url*** in [Application Conf File](src/main/resources/application.conf) by putting your Spark Master Url in it. You can also create a standalone Spark Cluster on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/spark-standalone.html#:~:text=before%20running%20Spark.-,Installing%20Spark%20Standalone%20to%20a%20Cluster,release%20or%20build%20it%20yourself.)). Otherwise, you can run the app on a local mode by putting ```"local[1]"``` in the ***spark_master_url*** conf.
+4. Install [Java 11](https://www.oracle.com/fr/java/technologies/javase-jdk11-downloads.html)
 
 
-5. Change the ***yaml_path*** variable and put your local path to the [Yaml File](yaml/caraml.yaml)
+5. Install Apache Spark on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/))
 
 
-6. Change the ***save_path*** variable and put your local path where should be saved the trained model and the train report.
+6. Change the ***spark_master_url*** in [Application Conf File](src/main/resources/application.conf) by putting your Spark Master Url in it. You can also create a standalone Spark Cluster on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/spark-standalone.html#:~:text=before%20running%20Spark.-,Installing%20Spark%20Standalone%20to%20a%20Cluster,release%20or%20build%20it%20yourself.)). Otherwise, you can run the app on a local mode by putting ```"local[1]"``` in the ***spark_master_url*** conf.
+
+
+7. Change the ***yaml_path*** variable and put your local path to the [Yaml File](yaml/caraml.yaml)
+
+
+8. Change the ***save_path*** variable and put your local path where should be saved the trained model and the train report.
+
+
+9. Run the following command (don't forget to add the path to the JAR and the Spark Cluster URL which should be the same with the application.config file):
+```shell
+spark-submit \
+  --class MainWithCaraML \
+  --master [Spark Master URL] \
+  --deploy-mode client \
+  [Path to application JAR]
+```
