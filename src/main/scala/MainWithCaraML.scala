@@ -11,7 +11,7 @@ import scala.collection.mutable
 object MainWithCaraML extends AppConfig {
   def main(args: Array[String]): Unit = {
 
-    val sparkMaster = conf.getString("spark_master")
+    val sparkMaster = conf.getString("spark_master_url")
     val yamlPath = conf.getString("yaml_path")
     val savePath = conf.getString("save_path")
     val trainDatasetPath = conf.getString("train_dataset_path")
@@ -52,6 +52,6 @@ object MainWithCaraML extends AppConfig {
 
   def computeAccuracy(prediction: Dataset[_]): DataFrame = {
     prediction.withColumn("is_success", when(col("label") === col("prediction"), 1).otherwise(0))
-      .agg(mean("is_success"))
+      .agg(mean("is_success").as("test_datase_accuracy"))
   }
 }

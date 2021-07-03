@@ -22,9 +22,14 @@ val appconf = "com.typesafe" % "config" % "1.4.0"
 
 lazy val caraMLTest = (project in file("."))
   .settings(
-    name := "CaraML",
+    name := "CaraMLTest",
     libraryDependencies += spark,
     libraryDependencies += sparkCore,
     libraryDependencies += caraML,
     libraryDependencies += appconf
   )
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case _ => MergeStrategy.first
+}

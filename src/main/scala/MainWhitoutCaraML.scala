@@ -14,7 +14,7 @@ import scala.collection.mutable
 object MainWhitoutCaraML extends AppConfig {
   def main(args: Array[String]): Unit = {
 
-    val sparkMaster = conf.getString("spark_master")
+    val sparkMaster = conf.getString("spark_master_url")
     val trainDatasetPath = conf.getString("train_dataset_path")
     val testDatasetPath = conf.getString("test_dataset_path")
 
@@ -23,6 +23,7 @@ object MainWhitoutCaraML extends AppConfig {
         .builder()
         .appName("CaraMLTest")
         .master(sparkMaster)
+        .config("spark.executor.memory", "4g")
         .getOrCreate()
 
     val trainDS = loadDataset(trainDatasetPath)
@@ -47,6 +48,7 @@ object MainWhitoutCaraML extends AppConfig {
   }
 
   def loadDataset(path: String)(implicit sparkSession: SparkSession) = {
+    import sparkSession.implicits._
 
     val rawDF = sparkSession.read.option("header", true).format("csv").load(path)
     val featuresCol = array(rawDF.columns.drop(1).map(col).map(_.cast(DoubleType)): _*).as("features")

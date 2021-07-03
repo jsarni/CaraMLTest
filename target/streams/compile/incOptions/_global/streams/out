@@ -1,2 +1,12 @@
 [0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /home/juba/Cours/PA/CaraMLTest/target/scala-2.12/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MainWhitoutCaraML$$typecreator4$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MainWhitoutCaraML.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MainWithCaraML$$typecreator4$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MainWhitoutCaraML$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MainWithCaraML$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	AppConfig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MainWithCaraML.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /home/juba/Cours/PA/CaraMLTest/target/scala-2.12/classes.bak[0m

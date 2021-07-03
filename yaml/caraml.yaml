@@ -1,0 +1,5 @@
+CaraPipeline:
+- stage: LogisticRegression
+  params:
+    - MaxIter: 20
+- evaluator: MulticlassClassificationEvaluator

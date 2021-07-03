@@ -4,7 +4,7 @@
 ***
 This repository contains the source code of a basic CaraML Application, using the [CaraML Framework](https://github.com/jsarni/CaraML). It'll basically be a tutorial application where we'll show how to use the framework.
 
-We'll work on a Classification problem, using [Fashion MNIST Digit](https://www.kaggle.com/zalando-research/fashionmnist), and so how we could use CaraML to build an efficient SparkML Model.
+We'll work on a Classification problem, using [Fashion MNIST Dataset](https://www.kaggle.com/zalando-research/fashionmnist), and so how we could use CaraML to build an efficient SparkML Model.
 
 # What we need
 
@@ -22,9 +22,6 @@ Here our full Yaml File Content. We'll see what each line means.
 >   params:
 >     - MaxIter: 2000
 > - evaluator: MulticlassClassificationEvaluator
-> - tuner: TrainValidationSplit
->   params:
->     - TrainRatio: 0.8
 > ```
 
 Let's see what this Yaml means :
@@ -36,9 +33,6 @@ Let's see what this Yaml means :
 
 
 * ``` evaluator ```: Here you specify the evaluator you want to fit your model. In our case, we'll use the **MulticlassClassificationEvaluator**
-
-
-* ``` tuner ```: With this key word, we specify the tuner we want to use, for model selection. Only two tuners are available: [TrainValidationSplit](https://spark.apache.org/docs/latest/api/scala/org/apache/spark/ml/tuning/TrainValidationSplit.html) and [Cross Validation](https://spark.apache.org/docs/latest/api/scala/org/apache/spark/ml/tuning/CrossValidator.html). You can also chose not to use any tuner. You can also specify their parameters if you want to, in the same way as for the *stages*.
 
 ---
 
@@ -77,3 +71,24 @@ def main(args: Array[String]): Unit = {
   val evaluation = caraModel.evaluate(testDS)
 }
 ```
+
+---
+
+# How to run the App ?
+Follow the next steps :
+1.  Clone this repository
+
+
+2. Download the [Fashion MNIST Dataset](https://www.kaggle.com/zalando-research/fashionmnist), and unzip the archive in the folder of your choice, then change the ***train_dataset_path*** and ***test_dataset_path*** accordingly in the [Application Conf File](src/main/resources/applcation.conf).
+
+
+3. Install Apache Spark on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/))
+
+
+4. Change the ***spark_master_url*** in [Application Conf File](src/main/resources/applcation.conf) by putting your Spark Master Url in it. You can also create a standalone Spark Cluster on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/spark-standalone.html#:~:text=before%20running%20Spark.-,Installing%20Spark%20Standalone%20to%20a%20Cluster,release%20or%20build%20it%20yourself.)). Otherwise, you can run the app on a local mode by putting ```"local[1]"``` in the ***spark_master_url*** conf.
+
+
+5. Change the ***yaml_path*** variable and put your local path to the [Yaml File](yaml/caraml.yaml)
+
+
+6. Change the ***save_path*** variable and put your local path where should be saved the trained model and the train report.
