@@ -79,13 +79,13 @@ Follow the next steps :
 1.  Clone this repository
 
 
-2. Download the [Fashion MNIST Dataset](https://www.kaggle.com/zalando-research/fashionmnist), and unzip the archive in the folder of your choice, then change the ***train_dataset_path*** and ***test_dataset_path*** accordingly in the [Application Conf File](src/main/resources/applcation.conf).
+2. Download the [Fashion MNIST Dataset](https://www.kaggle.com/zalando-research/fashionmnist), and unzip the archive in the folder of your choice, then change the ***train_dataset_path*** and ***test_dataset_path*** accordingly in the [Application Conf File](src/main/resources/application.conf).
 
 
 3. Install Apache Spark on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/))
 
 
-4. Change the ***spark_master_url*** in [Application Conf File](src/main/resources/applcation.conf) by putting your Spark Master Url in it. You can also create a standalone Spark Cluster on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/spark-standalone.html#:~:text=before%20running%20Spark.-,Installing%20Spark%20Standalone%20to%20a%20Cluster,release%20or%20build%20it%20yourself.)). Otherwise, you can run the app on a local mode by putting ```"local[1]"``` in the ***spark_master_url*** conf.
+4. Change the ***spark_master_url*** in [Application Conf File](src/main/resources/application.conf) by putting your Spark Master Url in it. You can also create a standalone Spark Cluster on your machine ([Tutorial](https://spark.apache.org/docs/3.1.1/spark-standalone.html#:~:text=before%20running%20Spark.-,Installing%20Spark%20Standalone%20to%20a%20Cluster,release%20or%20build%20it%20yourself.)). Otherwise, you can run the app on a local mode by putting ```"local[1]"``` in the ***spark_master_url*** conf.
 
 
 5. Change the ***yaml_path*** variable and put your local path to the [Yaml File](yaml/caraml.yaml)
