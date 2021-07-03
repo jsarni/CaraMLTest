@@ -1,4 +1,4 @@
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
 import io.github.jsarni.CaraModel
 import org.apache.spark.ml.feature.LabeledPoint
 import org.apache.spark.sql.functions.{array, col, mean, when}
@@ -24,18 +24,15 @@ object Main extends AppConfig {
         .master(sparkMaster)
         .getOrCreate()
 
-
     val trainDS = loadDataset(trainDatasetPath)
     val testDS = loadDataset(testDatasetPath)
 
     val caraModel = new CaraModel(yamlPath, trainDS, savePath)
-    caraModel.run().get
 
-    val evaluation = caraModel.evaluate(testDS)
+    caraModel.run()
+    val prediction = caraModel.evaluate(testDS)
 
-    val accuracy =
-      evaluation.withColumn("is_success", when(col("label") === col("prediction"), 1).otherwise(0))
-        .agg(mean("is_success"))
+    val accuracy = prediction.transform(computeAccuracy)
 
     accuracy.show()
   }
@@ -51,5 +48,10 @@ object Main extends AppConfig {
       .map(r =>
         LabeledPoint(r.getAs[Double](0), Vectors.dense(r.getAs[mutable.WrappedArray[Double]](1).toArray))
       )
+  }
+
+  def computeAccuracy(prediction: Dataset[_]): DataFrame = {
+    prediction.withColumn("is_success", when(col("label") === col("prediction"), 1).otherwise(0))
+      .agg(mean("is_success"))
   }
 }
